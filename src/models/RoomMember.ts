@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Optional } from 'sequelize';
 
 import { sequelize } from './sequelize';
 
@@ -9,14 +9,16 @@ interface RoomMemberAttributes {
   joinedAt: Date;
 }
 
-export class RoomMember extends Model<RoomMemberAttributes> implements RoomMemberAttributes {
-  public id!: number;
-  public userId!: number;
-  public roomId!: number;
-  public joinedAt!: Date;
+interface RoomMemberCreationAttributes extends Optional<RoomMemberAttributes, 'id' | 'joinedAt'> {}
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+export class RoomMember extends Model<RoomMemberAttributes, RoomMemberCreationAttributes> implements RoomMemberAttributes {
+  declare id: number;
+  declare userId: number;
+  declare roomId: number;
+  declare joinedAt: Date;
+
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 RoomMember.init({

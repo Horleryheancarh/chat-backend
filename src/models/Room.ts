@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Optional } from 'sequelize';
 
 import { sequelize } from './sequelize';
 
@@ -11,16 +11,18 @@ interface RoomAttributes {
   inviteCode?: string;
 }
 
-export class Room extends Model<RoomAttributes> implements RoomAttributes {
-  public id!: number;
-  public name!: string;
-  public description!: string;
-  public isPublic!: boolean;
-  public createdBy!: number;
-  public inviteCode?: string;
+interface RoomCreationAttributes extends Optional<RoomAttributes, 'id'> {}
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+export class Room extends Model<RoomAttributes, RoomCreationAttributes> implements RoomAttributes {
+  declare id: number;
+  declare name: string;
+  declare description: string;
+  declare isPublic: boolean;
+  declare createdBy: number;
+  declare inviteCode?: string;
+
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 Room.init({

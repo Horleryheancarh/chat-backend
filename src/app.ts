@@ -4,6 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { sequelize } from './models';
 import authRoutes from './routes/auth.routes';
+import roomRoutes from './routes/room.routes';
 
 const app = express();
 const httpServer = createServer(app);
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/rooms', roomRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
