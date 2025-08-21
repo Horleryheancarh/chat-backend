@@ -3,9 +3,9 @@ POST http://localhost:4000/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "johndoe",
-  "email": "johndoe@gmail.com",
-  "password": "johndoe123"
+  "username": "janedoe",
+  "email": "janedoe@gmail.com",
+  "password": "janedoe123"
 }
 
 
@@ -33,7 +33,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 
 ### Create Room
 POST http://localhost:4000/api/rooms/create HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU1NzQyMzc0LCJleHAiOjE3NTU4Mjg3NzR9.0FViGkvNrSHim7hNmU81hYQJ8GL_ulBT4Gcr2wFbzEg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU1NzQzNjQ2LCJleHAiOjE3NTU4MzAwNDZ9.tbmjSU2E9lGv7MRRRIwPgd6kGbkWw19AfP-ItgtsgJA
 Content-Type: application/json
 
 {
@@ -44,17 +44,17 @@ Content-Type: application/json
 
 ### Join Room
 POST http://localhost:4000/api/rooms/join HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU1NzQxMDQ3LCJleHAiOjE3NTU4Mjc0NDd9.SmqAXCM3DALU5ZMZHP2JPI4S3HLZ4mgcEv4molPF7E8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU1NzQ0MjIxLCJleHAiOjE3NTU4MzA2MjF9.tso8Q2FSSlqgWaIWnobt_uutVULyDKTQlwTAYs-OTu4
 Content-Type: application/json
 
 {
-  "roomId": 2,
-  "inviteCode": "X0ESZN6F"
+  "roomId": 1,
+  "inviteCode": "NM4QHV7Y"
 }
 
 ### My Rooms
 GET http://localhost:4000/api/rooms/my-rooms HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU1NzQxMDQ3LCJleHAiOjE3NTU4Mjc0NDd9.SmqAXCM3DALU5ZMZHP2JPI4S3HLZ4mgcEv4molPF7E8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU1NzQzNjQ2LCJleHAiOjE3NTU4MzAwNDZ9.tbmjSU2E9lGv7MRRRIwPgd6kGbkWw19AfP-ItgtsgJA
 
 ### Get Messages
 GET http://localhost:4000/api/rooms/1/messages HTTP/1.1

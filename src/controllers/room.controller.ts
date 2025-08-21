@@ -76,7 +76,7 @@ export const getUserRooms = async (req: AuthenticatedRequest, res: Response) => 
       where: { userId },
       include: [{
         model: Room,
-        attributes: ['id', 'name', 'description', 'isPublic']
+        attributes: ['id', 'name', 'description', 'isPublic', 'inviteCode']
       }]
     });
 
