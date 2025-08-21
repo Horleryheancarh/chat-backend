@@ -11,6 +11,9 @@ Room.belongsTo(User, { foreignKey: 'createdBy' });
 User.belongsToMany(Room, { through: RoomMember, foreignKey: 'userId' });
 Room.belongsToMany(User, { through: RoomMember, foreignKey: 'roomId' });
 
+RoomMember.belongsTo(User, { foreignKey: 'userId' });
+RoomMember.belongsTo(Room, { foreignKey: 'roomId' });
+
 User.hasMany(Message, { foreignKey: 'userId' });
 Message.belongsTo(User, { foreignKey: 'userId' });
 

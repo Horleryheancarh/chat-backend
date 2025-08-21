@@ -72,13 +72,12 @@ export const getUserRooms = async (req: AuthenticatedRequest, res: Response) => 
   try {
     const userId = req.user!.id;
 
-    const rooms = await Room.findAll({
+    const rooms = await RoomMember.findAll({
+      where: { userId },
       include: [{
-        model: User,
-        through: { where: { userId } },
-        attributes: []
-      }],
-      order: [['createdAt', 'DESC']]
+        model: Room,
+        attributes: ['id', 'name', 'description', 'isPublic']
+      }]
     });
 
     res.json({ rooms });
