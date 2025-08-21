@@ -1,7 +1,7 @@
-import { NextFunction, Response, Request } from "express";
-import jwt from "jsonwebtoken"
-import { User } from "../models";
-import { JWT_SECRET } from "../config";
+import { NextFunction, Response, Request } from 'express';
+import jwt from 'jsonwebtoken';
+import { User } from '../models';
+import { JWT_SECRET } from '../config';
 
 export interface AuthenticatedRequest extends Request {
   user?: User;
@@ -13,7 +13,7 @@ export const authenticateUser = async (
   next: NextFunction
 ) => {
   const authHeader = req.headers.authorization;
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
     return res.status(401).json({ error: 'Unauthorized'});

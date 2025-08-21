@@ -21,7 +21,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   declare password: string;
   declare online: boolean;
   declare lastSeen: Date;
-
+  
   declare readonly createdAt: Date;
   declare readonly updatedAt: Date;
 

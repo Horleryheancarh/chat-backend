@@ -2,12 +2,22 @@ import express from 'express';
 import { createServer } from 'http';
 import cors from 'cors';
 import helmet from 'helmet';
+import { Server } from 'socket.io';
+
 import { sequelize } from './models';
 import authRoutes from './routes/auth.routes';
 import roomRoutes from './routes/room.routes';
+import { initializeSocket } from './socket/socket.handler';
+
 
 const app = express();
 const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: '*', // Adjust this to your frontend URL in production
+    methods: ['GET', 'POST'],
+  },
+});
 
 // Middleware
 app.use(helmet());
@@ -24,6 +34,7 @@ app.get('/health', (req, res) => {
 });
 
 // Initialize Socket.IO
+initializeSocket(io);
 
 // Database connection and server startup
 const PORT = process.env.PORT;

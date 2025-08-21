@@ -1,8 +1,8 @@
-import { Message } from "./Message";
-import { Room } from "./Room";
-import { RoomMember } from "./RoomMember";
-import { sequelize } from "./sequelize";
-import { User } from "./User";
+import { Message } from './Message';
+import { Room } from './Room';
+import { RoomMember } from './RoomMember';
+import { sequelize } from './sequelize';
+import { User } from './User';
 
 // Associations
 User.hasMany(Room, { foreignKey: 'createdBy' });

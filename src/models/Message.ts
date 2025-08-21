@@ -9,18 +9,21 @@ interface MessageAttributes {
   roomId: number;
   delivered: boolean;
   read: boolean;
+  createdAt: Date;
 }
 
-export class Message extends Model<MessageAttributes> implements MessageAttributes {
-  public id!: number;
-  public content!: string;
-  public userId!: number;
-  public roomId!: number;
-  public delivered!: boolean;
-  public read!: boolean;
+interface MessageCreationAttributes extends Omit<MessageAttributes, 'id' | 'read' | 'createdAt'> {}
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+export class Message extends Model<MessageAttributes, MessageCreationAttributes> implements MessageAttributes {
+  declare id: number;
+  declare content: string;
+  declare userId: number;
+  declare roomId: number;
+  declare delivered: boolean;
+  declare read: boolean;
+
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 Message.init({
@@ -29,5 +32,6 @@ Message.init({
   userId: { type: DataTypes.INTEGER, allowNull: false },
   roomId: { type: DataTypes.INTEGER, allowNull: false },
   delivered: { type: DataTypes.BOOLEAN, defaultValue: false },
-  read: { type: DataTypes.BOOLEAN, defaultValue: false }
+  read: { type: DataTypes.BOOLEAN, defaultValue: false },
+  createdAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
 }, { sequelize });
