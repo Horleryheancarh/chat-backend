@@ -56,4 +56,25 @@ npm start
 docker-compose up -d
 ```
 
+## Project Structure
+
+.
+├── docker-compose.env
+├── docker-compose.yml
+├── Dockerfile
+├── package.json
+├── package-lock.json
+├── README.md
+├── rest.http
+├── src
+│   ├── app.ts
+│   ├── config.ts
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   └── socket
+└── tsconfig.json
+
+
 ## !NOTE rest.http shows endpoints
