@@ -2,6 +2,8 @@
 
 A chat application backend built with Node.js, Express, Socket.IO, TypeScript, and MySQL using Sequelize ORM.
 
+
+
 ## Features
 
 - **JWT Authentication** - Secure user registration and login
@@ -54,4 +56,4 @@ npm start
 docker-compose up -d
 ```
 
-
+## !NOTE rest.http shows endpoints
